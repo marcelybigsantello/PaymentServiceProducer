@@ -1,4 +1,4 @@
-package com.masantello.payment_service.config;
+package com.masantello.paymentserviceproducer.config;
 
 import java.io.Serializable;
 import java.util.HashMap;

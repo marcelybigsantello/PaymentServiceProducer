@@ -1,4 +1,4 @@
-package com.masantello.payment_service.models;
+package com.masantello.paymentserviceproducer.models;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ public class Product implements Serializable{
 	private Integer id;
 	private String productName;
 	private String description;
-	private String category;
+	private String brand;
 	private Float price;
 	private Integer quantity;
 	
@@ -22,7 +22,7 @@ public class Product implements Serializable{
 		this.id = id;
 		this.productName = productName;
 		this.description = description;
-		this.category = category;
+		this.brand = category;
 		this.price = price;
 		this.quantity = quantity;
 	}
@@ -51,12 +51,12 @@ public class Product implements Serializable{
 		this.description = description;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getBrand() {
+		return brand;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
 	public Float getPrice() {

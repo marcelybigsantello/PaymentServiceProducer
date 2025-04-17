@@ -1,6 +1,7 @@
-package com.masantello.payment_service.services.impl;
+package com.masantello.paymentserviceproducer.services.impl;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.slf4j.Logger;
@@ -8,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import com.masantello.payment_service.models.Payment;
-import com.masantello.payment_service.services.PaymentService;
+import com.masantello.paymentserviceproducer.models.Payment;
+import com.masantello.paymentserviceproducer.services.PaymentService;
 
 @Service
 public class PaymentServiceImpl implements PaymentService {
@@ -27,6 +28,7 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Override
 	public void processPayment(Payment payment) throws InterruptedException {
+		payment.setPaymentDate(LocalDateTime.now());
 		log.info("Processing payment ID={}, from User={}, at Date={}", 
 				payment.getId(), payment.getUser().getUserName(),
 				payment.getPaymentDate().format(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)));

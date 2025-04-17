@@ -1,4 +1,4 @@
-package com.masantello.payment_service.models;
+package com.masantello.paymentserviceproducer.models;
 
 import java.io.Serializable;
 

@@ -1,13 +1,13 @@
-package com.masantello.payment_service.controller.impl;
+package com.masantello.paymentserviceproducer.controller.impl;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.masantello.payment_service.controller.PaymentController;
-import com.masantello.payment_service.models.Payment;
-import com.masantello.payment_service.services.PaymentService;
+import com.masantello.paymentserviceproducer.controller.PaymentController;
+import com.masantello.paymentserviceproducer.models.Payment;
+import com.masantello.paymentserviceproducer.services.PaymentService;
 
 @RestController
 @RequestMapping(value = "/payments")

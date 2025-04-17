@@ -1,4 +1,4 @@
-package com.masantello.payment_service.models;
+package com.masantello.paymentserviceproducer.models;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -53,6 +53,10 @@ public class Payment implements Serializable {
 
 	public LocalDateTime getPaymentDate() {
 		return paymentDate;
+	}
+
+	public void setPaymentDate(LocalDateTime paymentDate) {
+		this.paymentDate = paymentDate;
 	}
 	
 }

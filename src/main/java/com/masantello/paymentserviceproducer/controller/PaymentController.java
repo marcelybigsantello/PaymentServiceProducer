@@ -1,11 +1,11 @@
-package com.masantello.payment_service.controller;
+package com.masantello.paymentserviceproducer.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.masantello.payment_service.models.Payment;
+import com.masantello.paymentserviceproducer.models.Payment;
 
 public interface PaymentController {
 

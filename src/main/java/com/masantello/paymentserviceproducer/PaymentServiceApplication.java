@@ -1,4 +1,4 @@
-package com.masantello.payment_service;
+package com.masantello.paymentserviceproducer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
