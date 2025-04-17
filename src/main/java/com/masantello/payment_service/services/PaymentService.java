@@ -4,6 +4,6 @@ import com.masantello.payment_service.models.Payment;
 
 public interface PaymentService {
 	
-	public void processPayment(Payment payment);
+	public void processPayment(Payment payment) throws InterruptedException;
 
 }

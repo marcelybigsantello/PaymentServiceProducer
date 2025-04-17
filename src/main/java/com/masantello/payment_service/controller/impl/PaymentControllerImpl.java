@@ -10,7 +10,7 @@ import com.masantello.payment_service.models.Payment;
 import com.masantello.payment_service.services.PaymentService;
 
 @RestController
-@RequestMapping(value = "/payment")
+@RequestMapping(value = "/payments")
 public class PaymentControllerImpl implements PaymentController {
 	
 	private final PaymentService paymentService;
@@ -21,7 +21,11 @@ public class PaymentControllerImpl implements PaymentController {
 
 	@Override
 	public ResponseEntity<Payment> performPayment(Payment payment) {
-		paymentService.processPayment(payment);
+		try {
+			paymentService.processPayment(payment);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 

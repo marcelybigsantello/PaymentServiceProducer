@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Payment implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -13,6 +15,8 @@ public class Payment implements Serializable {
 	private List<Product> products;
 	private Float finalPrice;
 	private String cardNumber;
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
 	private LocalDateTime paymentDate;
 
 	public Payment() {
@@ -31,7 +35,7 @@ public class Payment implements Serializable {
 		return id;
 	}
 
-	public User getIdUser() {
+	public User getUser() {
 		return user;
 	}
 
@@ -50,4 +54,5 @@ public class Payment implements Serializable {
 	public LocalDateTime getPaymentDate() {
 		return paymentDate;
 	}
+	
 }

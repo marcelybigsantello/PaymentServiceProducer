@@ -1,5 +1,8 @@
 package com.masantello.payment_service.services.impl;
 
+import java.io.Serializable;
+import java.time.format.DateTimeFormatter;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,19 +16,24 @@ public class PaymentServiceImpl implements PaymentService {
 
 	private static final Logger log = LoggerFactory.getLogger(PaymentServiceImpl.class);
 
-	private final KafkaTemplate<String, String> kafkaTemplate;
+	private static final String DATE_TIME_PATTERN = "dd/MM/yyyy HH:mm:ss";
+	private final KafkaTemplate<String, Serializable> kafkaTemplate;
 
-	private final String topicName = "teste";
+	private final String topicName = "Valid.Payments";
 
-	public PaymentServiceImpl(KafkaTemplate<String, String> kafkaTemplate) {
+	public PaymentServiceImpl(KafkaTemplate<String, Serializable> kafkaTemplate) {
 		this.kafkaTemplate = kafkaTemplate;
 	}
 
 	@Override
-	public void processPayment(Payment payment) {
-		log.info("Processing payment ID={}, from User={}, at Date={}", payment.getId(),
-				payment.getIdUser(), payment.getPaymentDate());
-		kafkaTemplate.send(topicName, payment.toString());
+	public void processPayment(Payment payment) throws InterruptedException {
+		log.info("Processing payment ID={}, from User={}, at Date={}", 
+				payment.getId(), payment.getUser().getUserName(),
+				payment.getPaymentDate().format(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)));
+		Thread.sleep(1000);
+		
+		log.info("Sending payment to topic {}", topicName);
+		kafkaTemplate.send(topicName, payment);
 		
 	}
 
